@@ -17,6 +17,7 @@ then
    echo "Printer already exists delete it first to avoid duplicate"
    /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd"
    /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd.O"
+   /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}___Fax.ppd"
 else
    echo "Printer does NOT already exist so nothing to delete"
 fi
