@@ -15,9 +15,11 @@ PRINTER_DEFAULT_OPTIONS="$6"
 if [ -f "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd" ] 
 then
    echo "Printer already exists delete it first to avoid duplicate"
-   /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd"
-   /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd.O"
-   /bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}___Fax.ppd"
+   /usr/sbin/lpadmin -x "${PRINTER_QUEUE_NAME}"
+   /usr/sbin/lpadmin -x "${PRINTER_QUEUE_NAME}___Fax"
+   #/bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd"
+   #/bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}.ppd.O"
+   #/bin/rm "/private/etc/cups/ppd/${PRINTER_QUEUE_NAME}___Fax.ppd"
 else
    echo "Printer does NOT already exist so nothing to delete"
 fi
